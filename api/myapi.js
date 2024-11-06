@@ -1,18 +1,15 @@
 const express = require('express');
-const axios = require('axios');
 const router = express.Router();
-
-// 環境変数からAPIキーを取得
 const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-// APIキーを返すエンドポイント
 router.get('/getGoogleMapsApiKey', (req, res) => {
-  if (apiKey) {
-    res.json({ apiKey });
-  } else {
-    res.status(500).json({ error: 'API key not available' });
+  if (!apiKey) {
+    return res.status(500).json({ error: 'Google Maps API key is not set in the environment variables' });
   }
+  res.json({ apiKey });
 });
+
+module.exports = router;
 
 // 住所から座標を取得するエンドポイント
 router.get('/location', async (req, res) => {

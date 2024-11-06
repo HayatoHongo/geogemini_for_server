@@ -9,23 +9,30 @@ let searchMarker = null;
 let distanceCalculated = false;
 
 async function loadGoogleMapsScript() {
-  try {
-    const response = await fetch('/api/getGoogleMapsApiKey');
-    const data = await response.json();
-    
-    if (data.apiKey) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&callback=initMap`;
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    } else {
-      console.error("API key is missing");
+    try {
+      const response = await fetch('/api/getGoogleMapsApiKey');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch the API key.');
+      }
+  
+      const data = await response.json();
+      
+      if (data.apiKey) {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        console.error("API key is missing");
+      }
+    } catch (error) {
+      console.error("Failed to load Google Maps script:", error);
+      alert("Error: Unable to load Google Maps API.");
     }
-  } catch (error) {
-    console.error("Failed to load Google Maps script:", error);
   }
-}
+  
 
 function initMap() {
   const mapContainer = document.getElementById('map-container');
