@@ -3,7 +3,7 @@ const axios = require('axios');
 const router = express.Router();
 
 // 環境変数からAPIキーを取得
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // Google Maps APIを使って位置情報を検索するエンドポイント
 router.get('/location', async (req, res) => {
