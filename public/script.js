@@ -267,7 +267,7 @@ function zoomOutEffect() {
 }
 
 const quizLocations = {
-    1: { lat: 37.7749, lng: -122.419 },
+    1: { lat: 37.7925235, lng: -122.3909831 },
     2: { lat: 34.0522, lng: -118.244 },
     3: { lat: 40.7128, lng: -74.006 },
     4: { lat: -1.2923, lng: 36.82 },
