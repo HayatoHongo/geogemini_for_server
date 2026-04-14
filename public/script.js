@@ -181,7 +181,7 @@ function showDistancePopup(distanceText) {
   // 30秒後にポップアップを消す
   setTimeout(() => {
     popup.style.display = 'none';
-  }, 30000);
+  }, 60000);
 }
 
 function calculateDistance(userLat, userLng, answerLat, answerLng) {
