@@ -178,7 +178,7 @@ function showDistancePopup(distanceText) {
   popupText.textContent = distanceText;
   popup.style.display = 'block';
 
-  // 30秒後にポップアップを消す
+  // 60秒後にポップアップを消す
   setTimeout(() => {
     popup.style.display = 'none';
   }, 60000);
