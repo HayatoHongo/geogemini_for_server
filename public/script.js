@@ -178,10 +178,10 @@ function showDistancePopup(distanceText) {
   popupText.textContent = distanceText;
   popup.style.display = 'block';
 
-  // 5秒後にポップアップを消す
+  // 50秒後にポップアップを消す
   setTimeout(() => {
     popup.style.display = 'none';
-  }, 5000);
+  }, 50000);
 }
 
 function calculateDistance(userLat, userLng, answerLat, answerLng) {
